@@ -1,5 +1,12 @@
 import os
 import streamlit as st
+
+st.set_page_config(
+    page_title="Coach — Fitness RAG Chat",
+    page_icon="🏋️",
+    layout="centered"
+)
+
 from rag import FitnessRetriever
 from llm import stream_answer, generate_answer
 
@@ -9,8 +16,6 @@ try:
     HF_TOKEN = st.secrets["HF_TOKEN"]
 except Exception:
     HF_TOKEN = os.environ.get("HF_TOKEN", "")
-
-st.set_page_config(page_title="Coach — Fitness RAG Chat", page_icon="🏋️", layout="centered")
 
 # ---------------------------------------------------------------------------
 # Styling
