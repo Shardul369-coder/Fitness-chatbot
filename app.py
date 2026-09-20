@@ -10,12 +10,8 @@ st.set_page_config(
 from rag import FitnessRetriever
 from llm import stream_answer, generate_answer
 
-# Reads from Streamlit secrets first (used on Streamlit Cloud), then falls
-# back to a local environment variable. Never hardcode the key here.
-try:
-    HF_TOKEN = st.secrets["HF_TOKEN"]
-except Exception:
-    HF_TOKEN = os.environ.get("HF_TOKEN", "")
+# Read Hugging Face token from environment variables (Render)
+HF_TOKEN = os.environ.get("HF_TOKEN", "")
 
 # ---------------------------------------------------------------------------
 # Styling
